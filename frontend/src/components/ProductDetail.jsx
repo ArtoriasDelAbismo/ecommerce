@@ -50,7 +50,8 @@ export default function ProductDetail() {
             className="add-to-cart-btn"
             onClick={() => addToCart(product)}
           >
-            Agregar al carrito
+                             <i className="fa-solid fa-cart-shopping"></i>+
+
           </button>
         </div>
       </section>

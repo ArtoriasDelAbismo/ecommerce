@@ -1,17 +1,14 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./ProductsList.css";
 import { useCartContext } from "../hooks/useCart";
 
-export default function ProductsList() {
+export default function ProductsList({ searchQuery }) {
   const [products, setProducts] = useState([]);
   const { addToCart } = useCartContext();
-  const [category, setCategory] = useState([
-    'CPU',
-    'GRAFICAS',
-    'SSD'
-  ])
+
+  const categories = ["MICROPROCESADORES", "GRAFICAS", "SSD"];
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/products")
@@ -19,58 +16,66 @@ export default function ProductsList() {
       .then((data) => setProducts(data));
   }, []);
 
-  
+  const handleFilter = (category) => {
+    setSelectedCategory(category);
+  };
+
+  const filteredProducts = products
+    .filter((p) =>
+      selectedCategory ? p.category === selectedCategory : true
+    )
+    .filter((p) =>
+      searchQuery
+        ? p.name.toLowerCase().includes(searchQuery.toLowerCase())
+        : true
+    );
 
   return (
-    <div>
-      <h1 style={{marginTop:'50px'}}>Microprocessors & GPUs</h1>
-      <div style={{display:'flex', justifyContent:'center', gap:'30px', marginTop:'20px'}}>
-        {category.map((category, index) => {
-          return <ul>
-            <li style={{listStyle:'none'}} key={index}>
-              <button style={{width:'150px', height:'30px', display:'flex', alignContent:'center', alignItems:'center', justifyContent:'center', borderRadius:'15px', border:'1px solid #868585ff'}}>{category}</button>
-              </li>
-          </ul>
-        })}
+    <div className="product-list-container">
+      <h1 className="product-list-title">Microprocesadores & GPUs</h1>
 
-      </div>
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "50px",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            gap: "20px",
-            flexWrap: "wrap",
-            width: "60%",
-          }}
+      <div className="category-container">
+        {categories.map((cat, index) => (
+          <button
+            key={index}
+            onClick={() => handleFilter(cat)}
+            className={`category-button ${
+              selectedCategory === cat ? "active" : ""
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+        <button
+          className="category-button"
+          onClick={() => setSelectedCategory(null)}
         >
-          {products.map((p) => (
+          ALL
+        </button>
+      </div>
+
+      <div className="products-container-wrapper">
+        <div className="products-container">
+          {filteredProducts.map((p) => (
             <div key={p.id} className="product-card">
               <Link to={`/product/${p.id}`}>
-                <div
-                  style={{
-                    backgroundColor: "white",
-                    borderRadius: "6px",
-                    height: "200px",
-                    padding: "15px",
-                  }}
-                >
+                <div className="product-image-container">
                   <img src={p.image} alt={p.name} />
                 </div>
-                <div>
+                <div className="product-info">
                   <h3>{p.name}</h3>
                   <p>{p.specs}</p>
-                  <p>$ {p.price}</p>
+                  <p className="product-price">$ {p.price}</p>
                 </div>
               </Link>
-              <div style={{display:'flex', justifyContent:'center', marginBottom:'10px'}}>
-                <button style={{ display:'flex', height:'30px', alignItems:'center'}} onClick={() => addToCart(p)}>Add to Cart</button>
+              <div className="add-to-cart-container">
+                <button
+                  className="add-to-cart-button"
+                  onClick={() => addToCart(p)}
+                >
+                  <i className="fa-solid fa-cart-shopping"></i>
+                  <span>Añadir</span>
+                </button>
               </div>
             </div>
           ))}

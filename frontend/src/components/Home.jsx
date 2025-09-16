@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import SubNavbar from './SubNavbar';
 
 export default function Home() {
   // Mock data for featured products
@@ -11,20 +12,20 @@ export default function Home() {
   ];
 
   return (
-    <div style={{ textAlign: 'center', padding: '2rem' }}>
-      <header style={{ backgroundColor: '#282c34', padding: '4rem', color: 'white' }}>
+    <div className="home-container">
+      <header className="home-header">
         <h1>Welcome to Microprocessors & GPUs Shop</h1>
         <p>Your one-stop shop for the latest and greatest in computing hardware.</p>
-        <Link to="/ProductsList" style={{ textDecoration: 'none', color: 'white', backgroundColor: '#61dafb', padding: '10px 20px', borderRadius: '5px', marginTop: '20px', display: 'inline-block' }}>
+        <Link to="/ProductsList" className="shop-now-button">
           Shop Now
         </Link>
       </header>
 
-      <section style={{ padding: '2rem' }}>
+      <section className="featured-products-section">
         <h2>Featured Products</h2>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginTop: '20px' }}>
+        <div className="featured-products-container">
           {featuredProducts.map(product => (
-            <div key={product.id} style={{ border: '1px solid #ccc', padding: '10px', width: '200px' }}>
+            <div key={product.id} className="featured-product-card">
               <h3>{product.name}</h3>
               <p>{product.specs}</p>
               <p>ARS {product.price}</p>

@@ -1,0 +1,38 @@
+.home-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.home-header {
+  background-color: #282c34;
+  padding: 4rem;
+  color: white;
+}
+
+.shop-now-button {
+  text-decoration: none;
+  color: white;
+  background-color: #61dafb;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.featured-products-section {
+  padding: 2rem;
+}
+
+.featured-products-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.featured-product-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+}

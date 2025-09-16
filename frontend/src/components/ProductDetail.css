@@ -1,6 +1,6 @@
 .product-detail-card {
     display: flex;
-    width: 80%;
+    width: 60%;
     justify-content: center;
     align-items: flex-start;
     height: 100%;
@@ -9,6 +9,7 @@
     background-color: #1a1a1a;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 150px;
 }
 
 .product-detail-image {
@@ -72,6 +73,7 @@
     transition: background-color 0.3s ease;
     margin-top: 1rem;
     align-self: flex-start;
+    width: 80px;
 }
 
 .add-to-cart-btn:hover {
