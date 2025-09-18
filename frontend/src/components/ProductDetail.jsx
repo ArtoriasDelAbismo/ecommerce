@@ -7,6 +7,8 @@ export default function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const { addToCart } = useCartContext();
+  
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/products/${id}`)
@@ -16,7 +18,7 @@ export default function ProductDetail() {
 
   if (!product) {
     return <div>Loading...</div>;
-  }
+  } 
 
   return (
     <div className="product-detail-container">

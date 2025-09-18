@@ -9,6 +9,9 @@ import { useState } from "react";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import Privacy from "./components/Privacy";
+import FAQ from "./components/FAQ";
+import ServiceTerms from "./components/ServiceTerms";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -32,6 +35,9 @@ function App() {
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/FAQ" element={<FAQ />} />
+          <Route path="/terms" element={<ServiceTerms />} />
         </Routes>
         <Footer/>
       </Router>

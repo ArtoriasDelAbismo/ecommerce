@@ -4,6 +4,8 @@ import { useCartContext } from '../hooks/useCart';
 
 export default function Cart() {
   const { cart, handleCheckout, deleteFromCart } = useCartContext();
+
+  const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
   return (
     <div style={{width:'100%', display:'flex', justifyContent:'center'}}>
 
@@ -21,17 +23,17 @@ export default function Cart() {
                     </div>
                     <span>{item.name} x {item.quantity}</span>
                     <span>$<strong>{item.price * item.quantity}</strong></span>
-                    <button onClick={() => deleteFromCart(item)}>
+                    <button style={{width:'5%'}} onClick={() => deleteFromCart(item)}>
                       <i className="fa-solid fa-trash"></i>
                     </button>
                   </div>
                   <div style={{height:'1px', width:'100%', backgroundColor:'black'}}></div>
+                  <span>Total: <strong>{totalPrice}</strong></span>
                 </div>
 
             ))}
-            <span>Total:</span>
             <div style={{ marginTop: "20px", textAlign: "right" }}>
-              <button type="button" onClick={handleCheckout}>Checkout with Mercado Pago</button>
+              <button style={{width:'40%'}} type="button" onClick={handleCheckout}>Checkout with Mercado Pago</button>
             </div>
           </>
         )}

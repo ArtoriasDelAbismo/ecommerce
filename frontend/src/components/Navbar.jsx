@@ -16,7 +16,7 @@ export default function Navbar({ onSearch }) {
       <nav style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ display: "flex", alignItems: "center", gap:'10px' }}>
           <div style={{ position: "absolute", left: "25px", fontSize:'x-large' }}>
-            <p>Kernel Dynamics</p>
+            <p>EternaCore</p>
           </div>
           <Link to="/" className="nav-link">
             Home
@@ -73,7 +73,7 @@ export default function Navbar({ onSearch }) {
           ></div>
           <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
             <i className="fa-solid fa-truck-fast"></i>
-            <p>Envíos gratis dentro de Santa Fe</p>
+            <p>Envíos gratis dentro de la ciudad de Santa Fe</p>
           </div>
         </div>
       </nav>

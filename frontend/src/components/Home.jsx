@@ -4,7 +4,6 @@ import './Home.css';
 import SubNavbar from './SubNavbar';
 
 export default function Home() {
-  // Mock data for featured products
   const featuredProducts = [
     { id: 1, name: 'CPU Ryzen 5 5600x', specs: '6 cores, 12 threads', price: 250 },
     { id: 2, name: 'Nvidia RTX 3080', specs: '10GB GDDR6X', price: 800 },
@@ -14,8 +13,7 @@ export default function Home() {
   return (
     <div className="home-container">
       <header className="home-header">
-        <h1>Welcome to Microprocessors & GPUs Shop</h1>
-        <p>Your one-stop shop for the latest and greatest in computing hardware.</p>
+        <h1>Next-gen computing hardware</h1>
         <Link to="/ProductsList" className="shop-now-button">
           Shop Now
         </Link>

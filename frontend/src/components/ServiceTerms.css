@@ -1,0 +1,43 @@
+.service-terms-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'SpaceGrotesk-VariableFont_wght', sans-serif;
+    color: #333;
+    margin-top: 110px;
+}
+
+.service-terms-container h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.service-terms-container h2 {
+    color: #34495e;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.service-terms-container p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.service-terms-container ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.service-terms-container li {
+    margin-bottom: 1.5rem;
+}
+
+.service-terms-container strong {
+    color: #e74c3c;
+}

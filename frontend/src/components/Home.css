@@ -1,12 +1,21 @@
 .home-container {
   text-align: center;
-  padding: 2rem;
 }
 
 .home-header {
+  display: flex;
+  flex-direction: column;
   background-color: #282c34;
+  justify-content: start;
+  align-items: center;
   padding: 4rem;
   color: white;
+  background-image: url('/images/Gemini_Generated_Image_u9l3bgu9l3bgu9l3.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 1000px;
 }
 
 .shop-now-button {
@@ -17,6 +26,8 @@
   border-radius: 5px;
   margin-top: 20px;
   display: inline-block;
+  height: 40px;
+  width: 10%;
 }
 
 .featured-products-section {
