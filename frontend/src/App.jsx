@@ -12,6 +12,7 @@ import Profile from "./components/Profile";
 import Privacy from "./components/Privacy";
 import FAQ from "./components/FAQ";
 import ServiceTerms from "./components/ServiceTerms";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -40,6 +41,7 @@ function App() {
           <Route path="/terms" element={<ServiceTerms />} />
         </Routes>
         <Footer/>
+        <WhatsAppButton />
       </Router>
     </CartProvider>
   );

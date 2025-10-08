@@ -12,6 +12,7 @@ export const products = [
     quantity: 1,
     currency_id: "ARS",
     image: "/images/i7-12.webp",
+    featured: true,
     characteristics: [
       "Procesadores Intel® Core™ i7 de 12ᵃ Generación",
       "Cantidad de núcleos: 12",
@@ -203,6 +204,7 @@ export const products = [
   quantity: 1,
   currency_id: "ARS",
   image: "/images/AMD-ryzen2.webp",
+  featured: true,
   characteristics: [
     "Modelo: Ryzen 3 5300G",
     "Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución",
@@ -414,6 +416,7 @@ export const products = [
   quantity: 1,
   currency_id: "ARS",
   image:"/images/asus-geforce-rtx-3050.webp",
+  featured: true,
   characteristics: [
     "Con la última arquitectura NVIDIA® Ampere, ASUS Dual GeForce RTX™ 3050 6G fusiona el rendimiento térmico dinámico con una amplia compatibilidad",
     "Las avanzadas soluciones de refrigeración de las tarjetas gráficas más emblemáticas están integradas en esta tarjeta de 20 cm de longitud y 2 ranuras",

@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import SubNavbar from './SubNavbar';
+import FeaturedProducts from './FeaturedProducts';
 
 export default function Home() {
-  const featuredProducts = [
-    { id: 1, name: 'CPU Ryzen 5 5600x', specs: '6 cores, 12 threads', price: 250 },
-    { id: 2, name: 'Nvidia RTX 3080', specs: '10GB GDDR6X', price: 800 },
-    { id: 3, name: 'CPU Intel i9-13900K', specs: '24 cores, 32 threads', price: 600 },
-  ];
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/products`)
+      .then((res) => res.json())
+      .then((data) => {
+        const featured = data.filter(p => p.featured);
+        setProducts(featured);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error("Error fetching featured products:", error)
+        setIsLoading(false);
+      });
+  }, []);
 
   return (
     <div className="home-container">
@@ -20,15 +31,8 @@ export default function Home() {
       </header>
 
       <section className="featured-products-section">
-        <h2>Featured Products</h2>
         <div className="featured-products-container">
-          {featuredProducts.map(product => (
-            <div key={product.id} className="featured-product-card">
-              <h3>{product.name}</h3>
-              <p>{product.specs}</p>
-              <p>ARS {product.price}</p>
-            </div>
-          ))}
+          <FeaturedProducts products={products} isLoading={isLoading} />
         </div>
       </section>
     </div>
